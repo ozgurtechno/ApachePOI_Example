@@ -10,25 +10,26 @@ public class Advanced_Example {
 
     static String TestDataPath = "src/test/java/Excel_ApachiPOI/students.xlsx";
     static HashMap<String, HashMap<String, String>> hm1 = new HashMap<>();
+    // Tom={firstname=Tom, lastname=cruise, }, Maria={}
     static String s3;
 
     public static void main(String[] args) throws IOException {
-        ReadTestData();
+        ReadTestData("students");
         System.out.println(hm1);
     }
 
 
-    public static void ReadTestData() throws IOException {
+    public static void ReadTestData(String sheetName) throws IOException {
 
         FileInputStream inputStream = new FileInputStream(TestDataPath);
         Workbook workbook= WorkbookFactory.create(inputStream);
-        Sheet sheet = workbook.getSheet("students");
+        Sheet sheet = workbook.getSheet(sheetName);
         Row HeaderRow = sheet.getRow(0);
 
         for (int i = 1; i < 3; i++) {
             Row currentRow = sheet.getRow(i);
-            HashMap<String, String> currentHash = new HashMap<>();
 
+            HashMap<String, String> currentHash = new HashMap<>();
             for (int j = 0; j < currentRow.getPhysicalNumberOfCells(); j++) {
 
                 Cell currentCell1 = currentRow.getCell(0);

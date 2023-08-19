@@ -16,14 +16,24 @@ public class Simple_Example {
         Cell cell = row.getCell(1);
 
         System.out.println(sheet.getRow(1).getCell(1));
-        System.out.println(row.getCell(1));
-        System.out.println(cell);
+        System.out.println(row.getCell(0));
         System.out.println(sheet.getFirstRowNum());
         System.out.println(sheet.getLastRowNum());
         System.out.println(sheet.getPhysicalNumberOfRows());
         System.out.println(sheet.getRow(2).getPhysicalNumberOfCells());
-        System.out.println(sheet.getRow(2).getCell(2).getStringCellValue());
-        System.out.println(sheet.getRow(2).getCell(2).getSheet());
+        System.out.println(sheet.getRow(2).getLastCellNum());
+
+        Cell x = sheet.getRow(1).getCell(4);
+        Cell y = sheet.getRow(1).getCell(3);
+        System.out.println("x.getCellType() = " + x.getCellType());
+        System.out.println("y.getCellType() = " + y.getCellType());
+
+        System.out.println((int) x.getNumericCellValue());
+        System.out.println(sheet.getRow(2).getCell(4).getStringCellValue());
+
+
+
+       System.out.println(sheet.getRow(2).getCell(2).getSheet());
 
 
     }
