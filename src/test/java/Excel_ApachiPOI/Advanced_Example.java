@@ -30,7 +30,7 @@ public class Advanced_Example {
             Row currentRow = sheet.getRow(i);
 
             HashMap<String, String> currentHash = new HashMap<>();
-            for (int j = 0; j < currentRow.getPhysicalNumberOfCells(); j++) {
+            for (int j = 0; j < currentRow.getPhysicalNumberOfCells() - 1; j++) {
 
                 Cell currentCell1 = currentRow.getCell(0);
                 switch (currentCell1.getCellType()) {

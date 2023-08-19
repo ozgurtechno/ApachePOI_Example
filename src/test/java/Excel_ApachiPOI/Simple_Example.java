@@ -29,7 +29,7 @@ public class Simple_Example {
         System.out.println("y.getCellType() = " + y.getCellType());
 
         System.out.println((int) x.getNumericCellValue());
-        System.out.println(sheet.getRow(2).getCell(4).getStringCellValue());
+        System.out.println(sheet.getRow(2).getCell(4).getNumericCellValue());
 
 
 
