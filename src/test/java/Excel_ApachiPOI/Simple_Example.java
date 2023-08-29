@@ -9,7 +9,7 @@ public class Simple_Example {
 
     public static void main(String[] args) throws IOException {
 
-        FileInputStream inputStream = new FileInputStream("src/test/java/Excel_ApachiPOI/students.xlsx");
+        FileInputStream inputStream = new FileInputStream("src/test/java/Excel_ApachiPOI/students.xlsx"); // connection
         Workbook workbook= WorkbookFactory.create(inputStream);
         Sheet sheet = workbook.getSheet("students");
         Row row = sheet.getRow(1);
@@ -29,7 +29,8 @@ public class Simple_Example {
         System.out.println("y.getCellType() = " + y.getCellType());
 
         System.out.println((int) x.getNumericCellValue());
-        System.out.println(sheet.getRow(2).getCell(4).getNumericCellValue());
+        System.out.println(sheet.getRow(2).getCell(4).getStringCellValue().replaceAll("\"", ""));
+        Integer.parseInt(sheet.getRow(2).getCell(4).getStringCellValue());
 
 
 

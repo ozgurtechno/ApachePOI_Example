@@ -5,13 +5,15 @@ import org.apache.poi.ss.usermodel.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 public class Advanced_Example {
 
     static String TestDataPath = "src/test/java/Excel_ApachiPOI/students.xlsx";
-    static HashMap<String, HashMap<String, String>> hm1 = new HashMap<>();
+    static HashMap<String, LinkedHashMap<String, String>> hm1 = new HashMap<>();
     // Tom={firstname=Tom, lastname=cruise, }, Maria={}
-    static String s3;
+
 
     public static void main(String[] args) throws IOException {
         ReadTestData("students");
@@ -26,13 +28,18 @@ public class Advanced_Example {
         Sheet sheet = workbook.getSheet(sheetName);
         Row HeaderRow = sheet.getRow(0);
 
+        String s3 = "";
+
         for (int i = 1; i < 3; i++) {
             Row currentRow = sheet.getRow(i);
 
-            HashMap<String, String> currentHash = new HashMap<>();
+            LinkedHashMap<String, String> currentHash = new LinkedHashMap<>(); // ordered- insertion order   --->
+//            TreeMap<String, String> currentHash = new TreeMap<>(); // sorted   --->
+//            HashMap<String, String> currentHash = new HashMap<>(); // unordered   --->
             for (int j = 0; j < currentRow.getPhysicalNumberOfCells() - 1; j++) {
 
                 Cell currentCell1 = currentRow.getCell(0);
+
                 switch (currentCell1.getCellType()) {
                     case STRING:
                         s3 = currentCell1.getStringCellValue();
